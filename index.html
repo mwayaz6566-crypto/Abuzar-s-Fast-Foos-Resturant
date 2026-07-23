@@ -370,14 +370,75 @@
   </style>
 </head>
 <body>
+<div class="hero-video">
 
-<!-- ===== HEADER ===== -->
-<h1>👨🏻‍🍳 Abuzar Fast Food 👨🏻‍🍳</h1>
-<h4>
-  Welcome to Abuzar Fast Food Restaurant.<br><br>
-  At Abuzar Fast Food Restaurant, we serve delicious, freshly prepared meals made with premium ingredients and authentic flavors. From juicy burgers and crispy fries to cheesy pizzas and refreshing drinks, every order is crafted with care to deliver the perfect taste.<br><br>
-  Our mission is to provide high-quality food, fast service, and a welcoming atmosphere for families and friends.
-</h4>
+    <video autoplay muted loop playsinline id="bgVideo">
+        <source src="225792_medium.mp4" type="video/mp4">
+    </video>
+
+    <h1>👨🏻‍🍳 Abuzar Fast Food 👨🏻‍🍳</h1>
+
+    <h4>
+        Welcome to Abuzar Fast Food Restaurant.<br><br>
+
+        At Abuzar Fast Food Restaurant, we serve delicious, freshly prepared meals made with premium ingredients and authentic flavors. From juicy burgers and crispy fries to cheesy pizzas and refreshing drinks, every order is crafted with care to deliver the perfect taste.<br><br>
+
+        Our mission is to provide high-quality food, fast service, and a welcoming atmosphere for families and friends.
+    </h4>
+
+    <style>
+        .hero-video{
+            position:relative;
+            width:100%;
+            min-height:500px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            overflow:hidden;
+            padding:40px;
+        }
+
+        .hero-video video{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            z-index:-2;
+        }
+
+        .hero-video::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:rgba(0,0,0,.45);
+            z-index:-1;
+        }
+
+        .hero-video h1{
+            color:#fff;
+            font-size:60px;
+            text-shadow:3px 3px 10px #000;
+            margin-bottom:20px;
+        }
+
+        .hero-video h4{
+            color:#fff;
+            max-width:900px;
+            line-height:1.8;
+            text-shadow:2px 2px 8px #000;
+        }
+    </style>
+
+    <script>
+        document.getElementById("bgVideo").play().catch(()=>{});
+    </script>
+
+</div>
+
 
 <!-- ===== ANIMATED FOOTER LINKS (top) ===== -->
 <div class="footer-links-section">
@@ -395,18 +456,35 @@
 <center><p>Abuzar Fast Food Restaurant is committed to serving fresh, hygienic, and delicious fast food. We focus on quality ingredients, excellent customer service, and affordable prices.</p></center>
 <hr>
 
-<!-- ===== BURGER ===== -->
-<center>
-  <h1>🍔 Burger</h1>
-  <h3>Burger Information</h3>
-  <hr>
-  <h4>Burger is one of the most popular fast foods in the world. It consists of a soft bun filled with a juicy beef, chicken, or vegetable patty, along with fresh lettuce, tomatoes, onions, cheese, pickles, and flavorful sauces such as mayonnaise, ketchup, and mustard. Burgers are loved for their delicious taste, variety of fillings, and satisfying texture.Burgers originated in the United States and have become a favorite meal in almost every country. Today, there are many different types of burgers, including Beef Burger, Chicken Burger, Zinger Burger, Cheese Burger, Double Patty Burger, BBQ Burger, Veggie Burger, and Spicy Burger. They are commonly served with French fries and a soft drink, making them a complete and enjoyable meal.</h4>
-  <a href="burger.html" target="_blank" class="order-btn"><i class="fas fa-eye"></i> View Detail</a>
-</center>
+
+
+    <center>
+        <h1>🍔 Burger</h1>
+        <img src="b.png" width="32%" height="" alt="">
+        <img src="burger2.png" width="32%" height="45%" alt="">
+        <img src="Burger3.png" width="32%" height="45%" alt="">
+
+
+        <h3>Burger Information</h3>
+        <hr>
+        <h4>
+            Burger is one of the most popular fast foods in the world. It consists of a soft bun filled with a juicy beef, chicken, or vegetable patty, along with fresh lettuce, tomatoes, onions, cheese, pickles, and flavorful sauces such as mayonnaise, ketchup, and mustard. Burgers are loved for their delicious taste, variety of fillings, and satisfying texture. Burgers originated in the United States and have become a favorite meal in almost every country. Today, there are many different types of burgers, including Beef Burger, Chicken Burger, Zinger Burger, Cheese Burger, Double Patty Burger, BBQ Burger, Veggie Burger, and Spicy Burger. They are commonly served with French fries and a soft drink, making them a complete and enjoyable meal.
+        </h4>
+
+        <a href="burger.html" target="_blank" class="order-btn">
+            <i class="fas fa-eye"></i> View Detail
+        </a>
+    </center>
+
+
 
 <!-- ===== ZINGER BURGER ===== -->
 <center>
-  <h1>🍔 Zinger Burger</h1>
+  <h1>🍔 Zinger Burger</h1> 
+   <img src="z2.png" width="32%" height="45%" alt="">
+        <img src="z3.png" width="32%" height="" alt="">
+        <img src="z1.png" width="32%" height="45%" alt="">
+      
   <h3>Zinger Burger Information</h3>
   <hr>
   <h4>Zinger Burger is one of the most popular fast foods around the world. It is made with a crispy fried chicken fillet that is marinated with flavorful spices and coated in a crunchy breadcrumb layer. The fillet is served inside a soft sesame bun with fresh lettuce, creamy mayonnaise, cheese (optional), and special sauces, creating a delicious combination of crispy, juicy, and creamy flavors.The Zinger Burger became famous for its crunchy texture and spicy taste, making it a favorite choice for people of all ages. It is commonly served with French fries and a cold soft drink, making it a complete and satisfying meal.At Abuzar Fast Food Restaurant, our Zinger Burger is prepared using 100% fresh chicken breast, premium-quality ingredients, crisp lettuce, freshly baked buns, and our special homemade sauce. Every burger is freshly cooked to order, ensuring a hot, crispy, and flavorful experience in every bite. 🍔😋</h4>
@@ -415,7 +493,11 @@
 
 <!-- ===== SHAWARMA ===== -->
 <center>
-  <h1>🌯 Shawarma</h1>
+  <h1>🌯 Shawarma</h1> 
+         <img src="s2.png" width="32%" height="45%" alt="">
+
+  <img src="s1.png" width="32%" height="45%" alt="">
+        <img src="s3.png" width="32%" height="" alt="">
   <h3>Shawarma Information</h3>
   <hr>
   <h4>Our delicious Shawarma is made with tender, perfectly seasoned chicken or beef, slow-roasted to perfection and wrapped in a soft, warm tortilla. It is filled with fresh lettuce, juicy tomatoes, onions, crunchy cucumbers, and creamy garlic sauce, creating a perfect blend of flavor and freshness. Every shawarma is prepared fresh to order using premium-quality ingredients, delivering a juicy, smoky, and satisfying taste in every bite. Whether you're looking for a quick lunch, dinner, or a tasty snack, our Shawarma is the perfect choice. Enjoy it with crispy French fries and a refreshing cold drink for a complete and delicious meal. 🌯🔥</h4>
@@ -425,6 +507,9 @@
 <!-- ===== FRENCH FRIES ===== -->
 <center>
   <h1>🍟 Large French Fries</h1>
+  <img src="f1.png" width="32%" height="45%" alt="">
+        <img src="f2.png" width="32%" height="" alt="">
+        <img src="f3.png" width="32%" height="45%" alt="">
   <h3>French Fries Information</h3>
   <hr>
   <h4>French Fries are one of the most popular fast foods in the world. They are made from fresh potatoes that are cut into thin strips, seasoned with a pinch of salt, and deep-fried until they become golden, crispy on the outside, and soft on the inside. Their delicious taste and crunchy texture make them a favorite side dish for people of all ages. French Fries are commonly served with burgers, sandwiches, fried chicken, and soft drinks. They can be enjoyed with a variety of dipping sauces such as tomato ketchup, mayonnaise, garlic sauce, cheese sauce, BBQ sauce, and spicy chili sauce. At Abuzar Fast Food Restaurant, our French Fries are prepared using premium-quality potatoes and cooked fresh to order in high-quality cooking oil. Every serving is hot, crispy, and perfectly seasoned to deliver a fresh, flavorful, and satisfying experience with every bite. 🍟😋</h4>
