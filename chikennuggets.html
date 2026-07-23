@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥤 Soft Drinks | Abuzar Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           COMPLETE CSS - SOFT DRINKS PAGE
+           Smooth Animations + Modern Design
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a1a;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #fbbf24);
+            border-radius: 10px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes fadeInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.05); }
+            50% { box-shadow: 0 0 50px rgba(251, 191, 36, 0.15); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes rippleAnim {
+            to { transform: scale(2); opacity: 0; }
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: rgba(251, 191, 36, 0.1); }
+            50% { border-color: rgba(251, 191, 36, 0.3); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            animation: fadeInUp 0.8s ease;
+            transition: all 0.4s ease;
+        }
+
+        .container:hover {
+            border-color: rgba(251, 191, 36, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================
+           BACK BUTTON
+           ============================================ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            color: #fbbf24;
+            transform: translateX(-6px);
+            border-color: rgba(251, 191, 36, 0.1);
+            background: rgba(251, 191, 36, 0.02);
+        }
+
+        .back-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           GRID
+           ============================================ */
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .drinks-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ============================================
+           IMAGE SECTION
+           ============================================ */
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: fadeInLeft 0.8s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.02) translateY(-6px);
+            box-shadow: 0 25px 70px rgba(251, 191, 36, 0.08);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+            transition: all 0.6s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.04);
+        }
+
+        .image-wrapper .badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #0a0a1a;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .image-wrapper .badge i {
+            margin-right: 4px;
+        }
+
+        .image-wrapper .badge-cold {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(59, 130, 246, 0.85);
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: shake 3s ease-in-out infinite;
+        }
+
+        .image-wrapper .badge-cold i {
+            margin-right: 4px;
+        }
+
+        .image-wrapper .fresh-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(251, 191, 36, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(251, 191, 36, 0.1);
+            font-size: 0.7rem;
+            color: #fbbf24;
+            font-weight: 500;
+            letter-spacing: 1px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .image-wrapper .fresh-tag i {
+            margin-right: 6px;
+        }
+
+        /* ===== DESCRIPTION DIALOGS BELOW IMAGE ===== */
+        .image-descriptions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .desc-dialog {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: default;
+        }
+
+        .desc-dialog:hover {
+            background: rgba(251, 191, 36, 0.03);
+            border-color: rgba(251, 191, 36, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .desc-dialog .dialog-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .desc-dialog h4 {
+            color: #fbbf24;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .desc-dialog p {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .image-descriptions {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+            .desc-dialog {
+                padding: 0.8rem 1rem;
+            }
+            .desc-dialog h4 {
+                font-size: 0.8rem;
+            }
+            .desc-dialog p {
+                font-size: 0.75rem;
+            }
+            .desc-dialog .dialog-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ============================================
+           CONTENT
+           ============================================ */
+        .content {
+            animation: fadeInRight 0.8s ease;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradShift 4s ease-in-out infinite;
+            margin-bottom: 0.3rem;
+        }
+
+        .content .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            border-left: 3px solid #fbbf24;
+            padding-left: 1rem;
+        }
+
+        .content .description {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+
+        .content .description i {
+            color: #fbbf24;
+            margin-right: 4px;
+        }
+
+        /* ============================================
+           FEATURES SECTION
+           ============================================ */
+        .features-section h2 {
+            color: #fbbf24;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-section h2 i {
+            font-size: 1.2rem;
+        }
+
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 0.4rem 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .features-list li:hover {
+            background: rgba(251, 191, 36, 0.04);
+            border-color: rgba(251, 191, 36, 0.08);
+            transform: translateY(-2px) scale(1.02);
+            color: #fbbf24;
+        }
+
+        .features-list li i {
+            color: #fbbf24;
+            font-size: 0.7rem;
+        }
+
+        /* ============================================
+           SERVED WITH
+           ============================================ */
+        .served-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.4s ease;
+        }
+
+        .served-section:hover {
+            border-color: rgba(251, 191, 36, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .served-section h2 {
+            color: #fbbf24;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .served-section h2 i {
+            font-size: 1.2rem;
+        }
+
+        .served-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .served-list li {
+            padding: 0.3rem 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: #94a3b8;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .served-list li:hover {
+            background: rgba(251, 191, 36, 0.04);
+            border-color: rgba(251, 191, 36, 0.08);
+            transform: translateY(-2px);
+            color: #fbbf24;
+        }
+
+        .served-list li i {
+            color: #fbbf24;
+            font-size: 0.7rem;
+        }
+
+        /* ============================================
+           PRICE SECTION
+           ============================================ */
+        .price-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .price-box {
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 16px;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid rgba(251, 191, 36, 0.06);
+            animation: pulseGlow 3s ease-in-out infinite;
+            width: 100%;
+            text-align: center;
+        }
+
+        .price-box h4 {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        .price-box h4 span {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .price-box h4 i {
+            margin-right: 6px;
+        }
+
+        .size-title {
+            color: #f0f0f0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .size-title i {
+            color: #fbbf24;
+        }
+
+        /* ============================================
+           ORDER BUTTON
+           ============================================ */
+        .order-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.9rem 2.8rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: none;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0a0a1a;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.15);
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.03) translateY(-4px);
+            box-shadow: 0 16px 50px rgba(251, 191, 36, 0.25);
+        }
+
+        .order-btn:active {
+            transform: scale(0.94);
+            transition-duration: 0.1s;
+        }
+
+        .order-btn i {
+            font-size: 1.3rem;
+        }
+
+        .order-btn .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
+
+        .order-btn .btn-text small {
+            font-size: 0.55rem;
+            font-weight: 400;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fast-tag {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding: 0.3rem 1.5rem;
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 30px;
+            border: 1px solid rgba(251, 191, 36, 0.06);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: borderGlow 2s ease-in-out infinite;
+            text-align: center;
+            display: block;
+        }
+
+        .fast-tag i {
+            color: #fbbf24;
+            margin-right: 6px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .content h1 {
+                font-size: 2.2rem;
+            }
+
+            .price-box h4 {
+                font-size: 1.3rem;
+            }
+
+            .order-btn {
+                padding: 0.7rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+
+            .content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content .description {
+                font-size: 0.9rem;
+            }
+
+            .price-box {
+                padding: 0.5rem 1rem;
+            }
+
+            .price-box h4 {
+                font-size: 1.1rem;
+            }
+
+            .size-title {
+                font-size: 1rem;
+            }
+
+            .order-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+                gap: 8px;
+            }
+
+            .order-btn i {
+                font-size: 1rem;
+            }
+
+            .image-wrapper .badge {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.8rem;
+                top: 10px;
+                left: 10px;
+            }
+
+            .image-wrapper .badge-cold {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.6rem;
+                top: 10px;
+                right: 10px;
+            }
+
+            .image-wrapper .fresh-tag {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.8rem;
+                bottom: 12px;
+            }
+
+            .back-btn {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.8rem;
+            }
+
+            .content .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .features-list li,
+            .served-list li {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .features-section h2,
+            .served-section h2 {
+                font-size: 1.1rem;
+            }
+
+            .served-section {
+                padding: 0.8rem 1rem;
+            }
+
+            .fast-tag {
+                font-size: 0.7rem;
+                padding: 0.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    MAIN CONTAINER
+    ============================================ -->
+    <div class="container">
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> Back to Menu
+        </a>
+
+        <!-- ===== DRINKS GRID ===== -->
+        <div class="drinks-grid">
+
+            <!-- ===== LEFT - IMAGE + DESCRIPTION DIALOGS ===== -->
+            <div class="image-section">
+
+                <!-- Image -->
+                <div class="image-wrapper">
+                    <img src="mmmin.jpg" alt="Soft Drinks" loading="lazy">
+                    <div class="badge">
+                        <i class="fas fa-star"></i> Best Seller
+                    </div>
+                    <div class="badge-cold">
+                        <i class="fas fa-snowflake"></i> Ice Cold
+                    </div>
+                    <div class="fresh-tag">
+                        <i class="fas fa-clock"></i> Fresh & Chilled
+                    </div>
+                </div>
+
+                <!-- ===== DESCRIPTION DIALOGS BELOW IMAGE ===== -->
+                <div class="image-descriptions">
+                    <div class="desc-dialog">
+                        <span class="dialog-icon">🧊</span>
+                        <h4>Ice Cold</h4>
+                        <p>Always served chilled to perfection for maximum refreshment.</p>
+                    </div>
+                    <div class="desc-dialog">
+                        <span class="dialog-icon">🫧</span>
+                        <h4>Fizzy & Bubbly</h4>
+                        <p>Perfect carbonation that delivers a crisp and refreshing taste.</p>
+                    </div>
+                    <div class="desc-dialog">
+                        <span class="dialog-icon">🥤</span>
+                        <h4>Premium Brands</h4>
+                        <p>Coca-Cola, Pepsi, Sprite, 7Up, Fanta, Mirinda & more.</p>
+                    </div>
+                    <div class="desc-dialog">
+                        <span class="dialog-icon">😋</span>
+                        <h4>Perfect Pairing</h4>
+                        <p>Best enjoyed with burgers, pizza, fries & all fast food.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ===== RIGHT - CONTENT ===== -->
+            <div class="content">
+
+                <h1>🥤 Soft Drinks</h1>
+                <p class="subtitle">Refreshing • Chilled • Fizzy</p>
+
+                <p class="description">
+                    <i class="fas fa-check-circle"></i> Complete your meal with our refreshing and ice-cold Soft Drinks, served to perfectly complement every bite of your favorite fast food.
+                    <br><br>
+                    <i class="fas fa-check-circle"></i> At Abuzar Fast Food Restaurant, we offer a wide variety of popular beverages, including Coca-Cola, Pepsi, Sprite, 7Up, Fanta, Mirinda, and Mountain Dew. Every drink is served chilled to deliver a crisp, fizzy, and refreshing taste that satisfies your thirst and enhances your dining experience.
+                    <br><br>
+                    <i class="fas fa-check-circle"></i> Our premium soft drinks are the perfect match for burgers, pizzas, shawarmas, hot dogs, sandwiches, broast, chicken nuggets, and crispy French fries. The sparkling bubbles and delicious flavors create the ideal balance with every meal, making each bite even more enjoyable.
+                    <br><br>
+                    <i class="fas fa-check-circle"></i> Cool, refreshing, fizzy, and full of flavor—our Soft Drinks are the perfect companion to every meal at Abuzar Fast Food Restaurant. 🥤😋
+                </p>
+
+                <!-- ===== FEATURES ===== -->
+                <div class="features-section">
+                    <h2><i class="fas fa-check-circle"></i> Premium Features</h2>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 🧊 Ice Cold & Refreshing</li>
+                        <li><i class="fas fa-check"></i> 🫧 Fizzy (Carbonated) Drink</li>
+                        <li><i class="fas fa-check"></i> 🥤 Perfect with Burgers, Pizza & Fries</li>
+                        <li><i class="fas fa-check"></i> ❄️ Served Chilled</li>
+                        <li><i class="fas fa-check"></i> 😋 Sweet & Refreshing Taste</li>
+                    </ul>
+                </div>
+
+                <!-- ===== SERVED WITH ===== -->
+                <div class="served-section">
+                    <h2><i class="fas fa-utensils"></i> Served With</h2>
+                    <ul class="served-list">
+                        <li><i class="fas fa-check"></i> 🍔 Burger</li>
+                        <li><i class="fas fa-check"></i> 🍟 French Fries</li>
+                        <li><i class="fas fa-check"></i> 🍕 Pizza</li>
+                        <li><i class="fas fa-check"></i> 🌯 Shawarma</li>
+                        <li><i class="fas fa-check"></i> 🍗 Broast</li>
+                        <li><i class="fas fa-check"></i> 🌭 Hot Dog</li>
+                        <li><i class="fas fa-check"></i> 🥪 Sandwich</li>
+                        <li><i class="fas fa-check"></i> 🍗 Chicken Nuggets</li>
+                    </ul>
+                </div>
+
+                <!-- ===== PRICES ===== -->
+                <div class="size-title">
+                    <i class="fas fa-cup-togo"></i> Regular (330ml)
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <h4><i class="fas fa-tag"></i> $1.99 <span>+ Free Delivery</span></h4>
+                    </div>
+                </div>
+
+                <div class="size-title">
+                    <i class="fas fa-cup-togo"></i> Medium (500ml)
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <h4><i class="fas fa-tag"></i> $2.99 <span>+ Free Delivery</span></h4>
+                    </div>
+                </div>
+
+                <div class="size-title">
+                    <i class="fas fa-cup-togo"></i> Large (1L)
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <h4><i class="fas fa-tag"></i> $3.99 <span>+ Free Delivery</span></h4>
+                    </div>
+                </div>
+
+                <div class="size-title">
+                    <i class="fas fa-cup-togo"></i> Family Pack (1.5L)
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <h4><i class="fas fa-tag"></i> $4.99 <span>+ Free Delivery</span></h4>
+                    </div>
+                </div>
+
+                <!-- ===== ORDER BUTTON ===== -->
+                <a href="Burger Order.html" class="order-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="btn-text">
+                        Order Now
+                        <small>Fresh & Chilled Delivery</small>
+                    </span>
+                </a>
+
+                <div class="fast-tag">
+                    <i class="fas fa-clock"></i> Fast Delivery • 30–45 Minutes
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================
+    JAVASCRIPT - Smooth Interactions
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. SCROLL REVEAL ANIMATION
+        // ============================================
+        const revealElements = document.querySelectorAll('.container, .image-wrapper, .desc-dialog, .content, .served-section, .price-box');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            revealObserver.observe(el);
+        });
+
+        // ============================================
+        // 2. BUTTON RIPPLE EFFECT
+        // ============================================
+        document.querySelectorAll('.order-btn, .back-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.cssText = `
+                            position: absolute;
+                            border-radius: 50%;
+                            background: rgba(255,255,255,0.25);
+                            transform: scale(0);
+                            animation: rippleAnim 0.6s ease-out;
+                            pointer-events: none;
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${e.clientX - rect.left - size/2}px;
+                            top: ${e.clientY - rect.top - size/2}px;
+                        `;
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // ============================================
+        // 3. IMAGE ZOOM ON CLICK
+        // ============================================
+        const drinksImage = document.querySelector('.image-wrapper img');
+        if (drinksImage) {
+            drinksImage.addEventListener('click', function() {
+                this.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                this.style.transform = 'scale(1.2)';
+                this.style.cursor = 'zoom-out';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    this.style.cursor = 'pointer';
+                }, 800);
+            });
+        }
+
+        // ============================================
+        // 4. KEYBOARD SHORTCUTS
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            // Press 'O' to go to order page
+            if ((e.key === 'o' || e.key === 'O') && !e.ctrlKey && !e.metaKey) {
+                const orderBtn = document.querySelector('.order-btn');
+                if (orderBtn) {
+                    orderBtn.click();
+                }
+            }
+            // Press 'B' to go back
+            if ((e.key === 'b' || e.key === 'B') && !e.ctrlKey && !e.metaKey) {
+                const backBtn = document.querySelector('.back-btn');
+                if (backBtn) {
+                    backBtn.click();
+                }
+            }
+            // Press 'T' to scroll to top
+            if (e.key === 't' || e.key === 'T') {
+                if (!e.ctrlKey && !e.metaKey) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        });
+
+        // ============================================
+        // 5. CONSOLE WELCOME
+        // ============================================
+        console.log('🥤 Soft Drinks page loaded successfully!');
+        console.log('⌨️ Keyboard Shortcuts:');
+        console.log('  🔥 Press "O" to Order Now');
+        console.log('  🔙 Press "B" to Go Back');
+        console.log('  ⬆️ Press "T" to Scroll to Top');
+        console.log('🥤 Enjoy your refreshing Soft Drink!');
+
+        // ============================================
+        // 6. PRICE ANIMATION
+        // ============================================
+        const priceBoxes = document.querySelectorAll('.price-box');
+        priceBoxes.forEach((box, index) => {
+            setInterval(() => {
+                box.style.transition = 'all 0.3s ease';
+                box.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    box.style.transform = 'scale(1)';
+                }, 200);
+            }, 3000 + (index * 500));
+        });
+
+        // ============================================
+        // 7. FRESH TAG BOUNCE
+        // ============================================
+        const freshTag = document.querySelector('.fresh-tag');
+        if (freshTag) {
+            setInterval(() => {
+                freshTag.style.transition = 'all 0.3s ease';
+                freshTag.style.transform = 'scale(1.08)';
+                setTimeout(() => {
+                    freshTag.style.transform = 'scale(1)';
+                }, 300);
+            }, 2500);
+        }
+
+        console.log('✅ Soft Drinks page is ready!');
+    </script>
+
+</body>
+</html>

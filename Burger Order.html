@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Place Order | Abuzar Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           COMPLETE CSS - ORDER FORM PAGE
+           Smooth Animations + Modern Design
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a1a;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #fbbf24);
+            border-radius: 10px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(251, 191, 36, 0.05);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(251, 191, 36, 0.12);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes successBounce {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            animation: fadeInUp 0.8s ease;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .container:hover {
+            border-color: rgba(251, 191, 36, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .form-header .icon {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: floatSlow 3s ease-in-out infinite;
+        }
+
+        .form-header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradShift 4s ease-in-out infinite;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes gradShift {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .form-header p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ============================================
+           BACK BUTTON
+           ============================================ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .back-btn:hover {
+            color: #fbbf24;
+            transform: translateX(-6px);
+            border-color: rgba(251, 191, 36, 0.1);
+        }
+
+        .back-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           FORM
+           ============================================ */
+        form {
+            animation: fadeInUp 1s ease;
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group label i {
+            color: #fbbf24;
+            margin-right: 6px;
+            width: 18px;
+        }
+
+        .form-group label .required {
+            color: #ef4444;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            color: #f0f0f0;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #fbbf24;
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.05);
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.01);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+            color: #f0f0f0;
+        }
+
+        /* ===== INPUT FOCUS ANIMATION ===== */
+        .form-group input:focus+label,
+        .form-group textarea:focus+label {
+            color: #fbbf24;
+        }
+
+        /* ============================================
+           SUBMIT BUTTON
+           ============================================ */
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0a0a1a;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.15);
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.03) translateY(-3px);
+            box-shadow: 0 16px 50px rgba(251, 191, 36, 0.25);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.95);
+            transition-duration: 0.1s;
+        }
+
+        .submit-btn i {
+            font-size: 1.3rem;
+        }
+
+        .submit-btn .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
+
+        .submit-btn .btn-text small {
+            font-size: 0.55rem;
+            font-weight: 400;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           SUCCESS MESSAGE
+           ============================================ */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 20px;
+            border: 1px solid rgba(251, 191, 36, 0.08);
+            animation: successBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message .icon {
+            font-size: 4.5rem;
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+            animation: floatSlow 3s ease-in-out infinite;
+        }
+
+        .success-message h2 {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .success-message p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+        }
+
+        .success-message .order-details {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .success-message .order-details strong {
+            color: #fbbf24;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .form-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-header .icon {
+                font-size: 2.8rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            .success-message h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+
+            .form-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .form-header .icon {
+                font-size: 2.2rem;
+            }
+
+            .form-header p {
+                font-size: 0.9rem;
+            }
+
+            .form-group label {
+                font-size: 0.8rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+
+            .submit-btn {
+                font-size: 0.9rem;
+                padding: 0.7rem;
+                border-radius: 10px;
+            }
+
+            .submit-btn i {
+                font-size: 1rem;
+            }
+
+            .success-message {
+                padding: 1.5rem 1rem;
+            }
+
+            .success-message .icon {
+                font-size: 3rem;
+            }
+
+            .success-message h2 {
+                font-size: 1.2rem;
+            }
+
+            .success-message p {
+                font-size: 0.85rem;
+            }
+
+            .back-btn {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    MAIN CONTAINER
+    ============================================ -->
+    <div class="container">
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Menu
+        </a>
+
+        <!-- ===== HEADER ===== -->
+        <div class="form-header">
+            <span class="icon">📝</span>
+            <h1>Place Your Order</h1>
+            <p>Fill in your details to place your order</p>
+        </div>
+
+        <!-- ===== FORM ===== -->
+        <form id="orderForm">
+
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullName">
+                    <i class="fas fa-user"></i> Full Name <span class="required">*</span>
+                </label>
+                <input type="text" id="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">
+                    <i class="fas fa-phone"></i> Phone Number <span class="required">*</span>
+                </label>
+                <input type="tel" id="phone" placeholder="03XXXXXXXXX" required>
+            </div>
+
+            <!-- Delivery Address -->
+            <div class="form-group">
+                <label for="address">
+                    <i class="fas fa-map-marker-alt"></i> Delivery Address <span class="required">*</span>
+                </label>
+                <textarea id="address" rows="4" placeholder="Enter your complete address" required></textarea>
+            </div>
+
+            <!-- Select Product -->
+            <div class="form-group">
+                <label for="product">
+                    <i class="fas fa-utensils"></i> Select Product <span class="required">*</span>
+                </label>
+                <select id="product" required>
+                    <option value="">Select a product...</option>
+                    <option value="Burger">🍔 Burger</option>
+                    <option value="Zinger Burger">🍔 Zinger Burger</option>
+                    <option value="Cheese Burger">🧀 Cheese Burger</option>
+                    <option value="Beef Burger">🥩 Beef Burger</option>
+                    <option value="Chicken Burger">🍗 Chicken Burger</option>
+                    <option value="Shawarma">🌯 Shawarma</option>
+                    <option value="French Fries">🍟 French Fries</option>
+                    <option value="Broast">🍗 Broast</option>
+                    <option value="Chicken Sandwich">🥪 Chicken Sandwich</option>
+                    <option value="Hot Dog">🌭 Hot Dog</option>
+                    <option value="Chicken Nuggets">🍗 Chicken Nuggets</option>
+                </select>
+            </div>
+
+            <!-- Quantity -->
+            <div class="form-group">
+                <label for="quantity">
+                    <i class="fas fa-sort-numeric-up"></i> Quantity <span class="required">*</span>
+                </label>
+                <input type="number" id="quantity" min="1" value="1" required>
+            </div>
+
+            <!-- Special Instructions -->
+            <div class="form-group">
+                <label for="instructions">
+                    <i class="fas fa-comment"></i> Special Instructions
+                </label>
+                <textarea id="instructions" rows="3" placeholder="Any special request (optional)"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fas fa-paper-plane"></i>
+                <span class="btn-text">
+                    Place Order
+                    <small>We'll confirm your order</small>
+                </span>
+            </button>
+
+        </form>
+
+        <!-- ===== SUCCESS MESSAGE ===== -->
+        <div class="success-message" id="successMessage">
+            <div class="icon">✅</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your order. We'll confirm it shortly.</p>
+            <div class="order-details" id="orderDetails">
+                <strong>Order Summary:</strong><br>
+                <span id="summaryText">Loading...</span>
+            </div>
+            <br>
+            <button onclick="location.reload()" class="submit-btn" style="width:auto; padding:0.6rem 2rem; font-size:0.9rem; margin-top:0.5rem;">
+                <i class="fas fa-plus"></i> New Order
+            </button>
+        </div>
+
+    </div>
+
+    <!-- ============================================
+    JAVASCRIPT - Smooth Interactions
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. FORM SUBMISSION
+        // ============================================
+        const form = document.getElementById('orderForm');
+        const successMessage = document.getElementById('successMessage');
+        const summaryText = document.getElementById('summaryText');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+            const instructions = document.getElementById('instructions').value.trim();
+
+            // Validation
+            if (name === '') {
+                alert('❌ Please enter your full name!');
+                document.getElementById('fullName').focus();
+                return;
+            }
+
+            if (phone === '' || phone.length < 10) {
+                alert('❌ Please enter a valid phone number!');
+                document.getElementById('phone').focus();
+                return;
+            }
+
+            if (address === '') {
+                alert('❌ Please enter your delivery address!');
+                document.getElementById('address').focus();
+                return;
+            }
+
+            if (product === '') {
+                alert('❌ Please select a product!');
+                document.getElementById('product').focus();
+                return;
+            }
+
+            // Show success message
+            form.style.display = 'none';
+
+            // Show order summary
+            const productName = document.getElementById('product').options[document.getElementById('product').selectedIndex]
+            .text;
+
+            summaryText.innerHTML = `
+                        🍽️ <strong>Product:</strong> ${productName}<br>
+                        🔢 <strong>Quantity:</strong> ${quantity}<br>
+                        👤 <strong>Name:</strong> ${name}<br>
+                        📞 <strong>Phone:</strong> ${phone}<br>
+                        📍 <strong>Address:</strong> ${address}<br>
+                        ${instructions ? `💬 <strong>Instructions:</strong> ${instructions}` : ''}
+                    `;
+
+            successMessage.classList.add('show');
+
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Log order
+            console.log('📝 Order Details:');
+            console.log('Name:', name);
+            console.log('Phone:', phone);
+            console.log('Address:', address);
+            console.log('Product:', product);
+            console.log('Quantity:', quantity);
+            console.log('Instructions:', instructions || 'None');
+            console.log('✅ Order placed successfully!');
+        });
+
+        // ============================================
+        // 2. INPUT FOCUS EFFECT
+        // ============================================
+        document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.closest('.form-group').style.transform = 'scale(1.01)';
+                this.closest('.form-group').style.transition = 'all 0.3s ease';
+            });
+            input.addEventListener('blur', function() {
+                this.closest('.form-group').style.transform = 'scale(1)';
+            });
+        });
+
+        // ============================================
+        // 3. BUTTON RIPPLE EFFECT
+        // ============================================
+        document.querySelectorAll('.submit-btn, .back-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.cssText = `
+                            position: absolute;
+                            border-radius: 50%;
+                            background: rgba(255,255,255,0.25);
+                            transform: scale(0);
+                            animation: rippleAnim 0.6s ease-out;
+                            pointer-events: none;
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${e.clientX - rect.left - size/2}px;
+                            top: ${e.clientY - rect.top - size/2}px;
+                        `;
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+                    @keyframes rippleAnim {
+                        to { transform: scale(2); opacity: 0; }
+                    }
+                `;
+        document.head.appendChild(styleSheet);
+
+        // ============================================
+        // 4. KEYBOARD SHORTCUTS
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            // Press 'S' to submit form
+            if ((e.key === 's' || e.key === 'S') && !e.ctrlKey && !e.metaKey) {
+                const submitBtn = document.getElementById('submitBtn');
+                if (submitBtn && form.style.display !== 'none') {
+                    submitBtn.click();
+                }
+            }
+            // Press 'B' to go back
+            if ((e.key === 'b' || e.key === 'B') && !e.ctrlKey && !e.metaKey) {
+                const backBtn = document.querySelector('.back-btn');
+                if (backBtn) {
+                    backBtn.click();
+                }
+            }
+            // Press 'T' to scroll to top
+            if (e.key === 't' || e.key === 'T') {
+                if (!e.ctrlKey && !e.metaKey) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+            // Press 'R' to reset form
+            if ((e.key === 'r' || e.key === 'R') && !e.ctrlKey && !e.metaKey) {
+                if (successMessage.classList.contains('show')) {
+                    location.reload();
+                }
+            }
+        });
+
+        // ============================================
+        // 5. CONSOLE WELCOME
+        // ============================================
+        console.log('📝 Order form loaded successfully!');
+        console.log('⌨️ Keyboard Shortcuts:');
+        console.log('  📤 Press "S" to Submit Order');
+        console.log('  🔙 Press "B" to Go Back');
+        console.log('  ⬆️ Press "T" to Scroll to Top');
+        console.log('  🔄 Press "R" to Reset/New Order');
+        console.log('🍔 Ready to take your order!');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍔 Zinger Burger | Abuzar Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           COMPLETE CSS - ZINGER BURGER PAGE
+           Smooth Animations + Modern Design
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a1a;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #fbbf24);
+            border-radius: 10px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(251, 191, 36, 0.05);
+            }
+            50% {
+                box-shadow: 0 0 50px rgba(251, 191, 36, 0.15);
+            }
+        }
+
+        @keyframes floatSlow {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes rotateSlow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes gradShift {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes rippleAnim {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            animation: fadeInUp 0.8s ease;
+            transition: all 0.4s ease;
+        }
+
+        .container:hover {
+            border-color: rgba(251, 191, 36, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================
+           BACK BUTTON
+           ============================================ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .back-btn:hover {
+            color: #fbbf24;
+            transform: translateX(-6px);
+            border-color: rgba(251, 191, 36, 0.1);
+        }
+
+        .back-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           GRID
+           ============================================ */
+        .zinger-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .zinger-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ============================================
+           IMAGE
+           ============================================ */
+        .image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: fadeInLeft 0.8s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.02) translateY(-6px);
+            box-shadow: 0 25px 70px rgba(251, 191, 36, 0.08);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 24px;
+            transition: all 0.6s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.04);
+        }
+
+        .image-wrapper .badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #0a0a1a;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        .image-wrapper .badge i {
+            margin-right: 4px;
+        }
+
+        .image-wrapper .badge-spicy {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(239, 68, 68, 0.85);
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .image-wrapper .badge-spicy i {
+            margin-right: 4px;
+        }
+
+        /* ============================================
+           CONTENT
+           ============================================ */
+        .content {
+            animation: fadeInRight 0.8s ease;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradShift 4s ease-in-out infinite;
+            margin-bottom: 0.3rem;
+        }
+
+        .content .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            border-left: 3px solid #fbbf24;
+            padding-left: 1rem;
+        }
+
+        .content .description {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .content .description i {
+            color: #fbbf24;
+            margin-right: 4px;
+        }
+
+        /* ============================================
+           QUOTES
+           ============================================ */
+        .quotes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            margin: 0.5rem 0 1.2rem;
+        }
+
+        .quotes em {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            transition: all 0.3s ease;
+            cursor: default;
+            border-left: 2px solid transparent;
+            padding-left: 0.8rem;
+        }
+
+        .quotes em:hover {
+            color: #fbbf24;
+            border-left-color: #fbbf24;
+            transform: translateX(6px);
+        }
+
+        .quotes .highlight {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-left-color: #fbbf24;
+            padding-left: 0.8rem;
+        }
+
+        .quotes .highlight i {
+            margin-right: 6px;
+        }
+
+        /* ============================================
+           PRICE & DETAILS
+           ============================================ */
+        .price-box {
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+            border: 1px solid rgba(251, 191, 36, 0.06);
+            display: inline-block;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .price-box h3 {
+            font-size: 2rem;
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        .price-box h3 span {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        /* ============================================
+           FEATURES
+           ============================================ */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .features p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .features p:hover {
+            background: rgba(251, 191, 36, 0.04);
+            border-color: rgba(251, 191, 36, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .features p i {
+            color: #fbbf24;
+        }
+
+        .features .delivery {
+            color: #fbbf24;
+            font-weight: 500;
+        }
+
+        .features .delivery i {
+            color: #fbbf24;
+        }
+
+        /* ============================================
+           ORDER BUTTON
+           ============================================ */
+        .order-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.9rem 2.8rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: none;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0a0a1a;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.15);
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.06) translateY(-4px);
+            box-shadow: 0 16px 50px rgba(251, 191, 36, 0.25);
+        }
+
+        .order-btn:active {
+            transform: scale(0.94);
+            transition-duration: 0.1s;
+        }
+
+        .order-btn i {
+            font-size: 1.3rem;
+        }
+
+        .order-btn .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.1;
+        }
+
+        .order-btn .btn-text small {
+            font-size: 0.55rem;
+            font-weight: 400;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .content h1 {
+                font-size: 2.2rem;
+            }
+
+            .price-box h3 {
+                font-size: 1.6rem;
+            }
+
+            .order-btn {
+                padding: 0.7rem 2rem;
+                font-size: 1rem;
+            }
+
+            .features {
+                gap: 0.4rem 1rem;
+            }
+
+            .features p {
+                font-size: 0.85rem;
+                padding: 0.2rem 0.6rem;
+            }
+
+            .quotes em {
+                font-size: 0.9rem;
+            }
+
+            .quotes .highlight {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+
+            .content h1 {
+                font-size: 1.8rem;
+            }
+
+            .content .description {
+                font-size: 0.9rem;
+            }
+
+            .price-box {
+                padding: 0.8rem 1rem;
+            }
+
+            .price-box h3 {
+                font-size: 1.3rem;
+            }
+
+            .order-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+                gap: 8px;
+            }
+
+            .order-btn i {
+                font-size: 1rem;
+            }
+
+            .features p {
+                font-size: 0.75rem;
+                padding: 0.15rem 0.5rem;
+            }
+
+            .image-wrapper .badge {
+                font-size: 0.55rem;
+                padding: 0.15rem 0.8rem;
+            }
+
+            .image-wrapper .badge-spicy {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.6rem;
+                top: 12px;
+                right: 12px;
+            }
+
+            .quotes em {
+                font-size: 0.8rem;
+            }
+
+            .quotes .highlight {
+                font-size: 0.95rem;
+            }
+
+            .back-btn {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.8rem;
+            }
+
+            .content .subtitle {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    MAIN CONTAINER
+    ============================================ -->
+    <div class="container">
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Menu
+        </a>
+
+        <!-- ===== ZINGER GRID ===== -->
+        <div class="zinger-grid">
+
+            <!-- ===== IMAGE ===== -->
+            <div class="image-wrapper">
+                <img src="zinger burger.jpg" alt="Zinger Burger" loading="lazy">
+                <div class="badge">
+                    <i class="fas fa-star"></i> Best Seller
+                </div>
+                <div class="badge-spicy">
+                    <i class="fas fa-fire"></i> Spicy & Crispy
+                </div>
+            </div>
+
+            <!-- ===== CONTENT ===== -->
+            <div class="content">
+
+                <h1>🍔 Zinger Burger</h1>
+                <p class="subtitle">Crispy • Spicy • Irresistible</p>
+
+                <p class="description">
+                    <i class="fas fa-check-circle"></i> Our Zinger Burger is made with a crispy golden-fried chicken fillet, fresh lettuce, creamy mayonnaise, and our special signature sauce, all served inside a soft toasted sesame bun. Every bite offers the perfect combination of crunch, tenderness, and rich flavor. Prepared fresh to order using high-quality ingredients, this burger is a delicious choice for lunch, dinner, or any time you're craving a satisfying fast-food meal. Enjoy it with crispy French fries and a chilled soft drink for the ultimate dining experience. 🍔🔥
+                </p>
+
+                <!-- ===== QUOTES ===== -->
+                <div class="quotes">
+                    <em>🔥 Crispy, juicy, and full of flavor.</em>
+                    <em>⭐ Spicy, crunchy, and absolutely delicious.</em>
+                    <em class="highlight">
+                        <i class="fas fa-fire"></i> "Crispy Outside, Juicy Inside."
+                    </em>
+                </div>
+
+                <!-- ===== PRICE ===== -->
+                <div class="price-box">
+                    <h3>Rs. 799 <span>+ Free Delivery</span></h3>
+                </div>
+
+                <!-- ===== FEATURES ===== -->
+                <div class="features">
+                    <p><i class="fas fa-credit-card"></i> Cash on Delivery</p>
+                    <p><i class="fas fa-fire"></i> Served Fresh & Hot</p>
+                    <p><i class="fas fa-check-circle"></i> 100% Hygienic</p>
+                    <p><i class="fas fa-medal"></i> Premium Ingredients</p>
+                    <p class="delivery"><i class="fas fa-clock"></i> Delivery: 30–45 Min</p>
+                </div>
+
+                <!-- ===== ORDER BUTTON ===== -->
+                <a href="Burger Order.html" class="order-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="btn-text">
+                        Order Now
+                        <small>Fresh & Hot Delivery</small>
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================
+    JAVASCRIPT - Smooth Interactions
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. SCROLL REVEAL ANIMATION
+        // ============================================
+        const revealElements = document.querySelectorAll('.container, .image-wrapper, .content');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            revealObserver.observe(el);
+        });
+
+        // ============================================
+        // 2. BUTTON RIPPLE EFFECT
+        // ============================================
+        document.querySelectorAll('.order-btn, .back-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.cssText = `
+                            position: absolute;
+                            border-radius: 50%;
+                            background: rgba(255,255,255,0.25);
+                            transform: scale(0);
+                            animation: rippleAnim 0.6s ease-out;
+                            pointer-events: none;
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${e.clientX - rect.left - size/2}px;
+                            top: ${e.clientY - rect.top - size/2}px;
+                        `;
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // ============================================
+        // 3. IMAGE ZOOM ON CLICK
+        // ============================================
+        const zingerImage = document.querySelector('.image-wrapper img');
+        if (zingerImage) {
+            zingerImage.addEventListener('click', function() {
+                this.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                this.style.transform = 'scale(1.2)';
+                this.style.cursor = 'zoom-out';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    this.style.cursor = 'pointer';
+                }, 800);
+            });
+        }
+
+        // ============================================
+        // 4. KEYBOARD SHORTCUTS
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            // Press 'O' to go to order page
+            if ((e.key === 'o' || e.key === 'O') && !e.ctrlKey && !e.metaKey) {
+                const orderBtn = document.querySelector('.order-btn');
+                if (orderBtn) {
+                    orderBtn.click();
+                }
+            }
+            // Press 'B' to go back
+            if ((e.key === 'b' || e.key === 'B') && !e.ctrlKey && !e.metaKey) {
+                const backBtn = document.querySelector('.back-btn');
+                if (backBtn) {
+                    backBtn.click();
+                }
+            }
+            // Press 'T' to scroll to top
+            if (e.key === 't' || e.key === 'T') {
+                if (!e.ctrlKey && !e.metaKey) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        });
+
+        // ============================================
+        // 5. CONSOLE WELCOME
+        // ============================================
+        console.log('🍔 Zinger Burger page loaded successfully!');
+        console.log('⌨️ Keyboard Shortcuts:');
+        console.log('  🔥 Press "O" to Order Now');
+        console.log('  🔙 Press "B" to Go Back');
+        console.log('  ⬆️ Press "T" to Scroll to Top');
+        console.log('🍔 Enjoy your crispy Zinger Burger!');
+
+        // ============================================
+        // 6. PRICE ANIMATION
+        // ============================================
+        const priceBox = document.querySelector('.price-box');
+        if (priceBox) {
+            setInterval(() => {
+                priceBox.style.transition = 'all 0.3s ease';
+                priceBox.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    priceBox.style.transform = 'scale(1)';
+                }, 200);
+            }, 3000);
+        }
+
+        // ============================================
+        // 7. SPICY BADGE GLOW
+        // ============================================
+        const spicyBadge = document.querySelector('.badge-spicy');
+        if (spicyBadge) {
+            setInterval(() => {
+                spicyBadge.style.transition = 'all 0.5s ease';
+                spicyBadge.style.boxShadow = '0 0 30px rgba(239, 68, 68, 0.3)';
+                setTimeout(() => {
+                    spicyBadge.style.boxShadow = 'none';
+                }, 500);
+            }, 2500);
+        }
+    </script>
+
+</body>
+</html>

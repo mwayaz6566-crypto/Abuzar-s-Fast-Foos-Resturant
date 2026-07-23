@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📜 Terms & Conditions | Abuzar Fast Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ============================================
+           COMPLETE CSS - TERMS & CONDITIONS
+           Smooth Animations + Modern Design
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a1a;
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f59e0b, #fbbf24);
+            border-radius: 10px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes gradShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.05); }
+            50% { box-shadow: 0 0 50px rgba(251, 191, 36, 0.1); }
+        }
+
+        @keyframes rippleAnim {
+            to { transform: scale(2); opacity: 0; }
+        }
+
+        /* ============================================
+           CONTAINER
+           ============================================ */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            animation: fadeInUp 0.8s ease;
+            transition: all 0.4s ease;
+        }
+
+        .container:hover {
+            border-color: rgba(251, 191, 36, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================
+           BACK BUTTON
+           ============================================ */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            color: #fbbf24;
+            transform: translateX(-6px);
+            border-color: rgba(251, 191, 36, 0.1);
+            background: rgba(251, 191, 36, 0.02);
+        }
+
+        .back-btn i {
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .terms-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .terms-header .icon {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: floatSlow 3s ease-in-out infinite;
+        }
+
+        .terms-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradShift 4s ease-in-out infinite;
+            letter-spacing: 1px;
+        }
+
+        .terms-header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-top: 0.3rem;
+        }
+
+        .terms-header .last-updated {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.2rem 1.2rem;
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 30px;
+            border: 1px solid rgba(251, 191, 36, 0.06);
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .terms-header .last-updated i {
+            color: #fbbf24;
+            margin-right: 6px;
+        }
+
+        /* ============================================
+           TERMS CONTENT
+           ============================================ */
+        .terms-content {
+            animation: fadeInUp 0.9s ease;
+        }
+
+        .terms-section {
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s ease;
+        }
+
+        .terms-section:hover {
+            border-color: rgba(251, 191, 36, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(4px);
+        }
+
+        .terms-section .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(251, 191, 36, 0.08);
+            border-radius: 50%;
+            color: #fbbf24;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .terms-section h2 {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-section h2 i {
+            font-size: 1.1rem;
+            color: #fbbf24;
+        }
+
+        .terms-section p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 42px;
+        }
+
+        .terms-section ul {
+            padding-left: 42px;
+            list-style: none;
+            margin-top: 0.3rem;
+        }
+
+        .terms-section ul li {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            padding: 0.15rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .terms-section ul li::before {
+            content: '▸';
+            color: #fbbf24;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .terms-section ul li:hover {
+            color: #cbd5e1;
+        }
+
+        /* ============================================
+           ACCEPT BUTTON
+           ============================================ */
+        .accept-section {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .accept-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0.9rem 2.8rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: none;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0a0a1a;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accept-btn:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 16px 50px rgba(251, 191, 36, 0.2);
+        }
+
+        .accept-btn:active {
+            transform: scale(0.94);
+            transition-duration: 0.1s;
+        }
+
+        .accept-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* ============================================
+           ACCEPTED NOTIFICATION
+           ============================================ */
+        .accepted-notification {
+            display: none;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(251, 191, 36, 0.08);
+            margin-top: 1rem;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .accepted-notification.show {
+            display: block;
+        }
+
+        .accepted-notification .icon {
+            font-size: 3rem;
+            color: #fbbf24;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .accepted-notification h3 {
+            color: #fbbf24;
+            font-size: 1.3rem;
+        }
+
+        .accepted-notification p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .terms-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .terms-header .icon {
+                font-size: 3rem;
+            }
+
+            .terms-section {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.05rem;
+            }
+
+            .terms-section p {
+                font-size: 0.9rem;
+                padding-left: 0;
+            }
+
+            .terms-section ul {
+                padding-left: 0;
+            }
+
+            .terms-section .section-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.7rem;
+            }
+
+            .accept-btn {
+                padding: 0.7rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+
+            .terms-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .terms-header .icon {
+                font-size: 2.5rem;
+            }
+
+            .terms-header p {
+                font-size: 0.9rem;
+            }
+
+            .terms-header .last-updated {
+                font-size: 0.7rem;
+                padding: 0.15rem 0.8rem;
+            }
+
+            .terms-section {
+                padding: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .terms-section h2 {
+                font-size: 0.95rem;
+            }
+
+            .terms-section p {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .terms-section ul li {
+                font-size: 0.8rem;
+                line-height: 1.6;
+            }
+
+            .terms-section .section-number {
+                width: 24px;
+                height: 24px;
+                font-size: 0.6rem;
+            }
+
+            .accept-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+                gap: 8px;
+            }
+
+            .accept-btn i {
+                font-size: 1rem;
+            }
+
+            .back-btn {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.8rem;
+            }
+
+            .accepted-notification h3 {
+                font-size: 1.1rem;
+            }
+
+            .accepted-notification p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    MAIN CONTAINER
+    ============================================ -->
+    <div class="container">
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> Back to Menu
+        </a>
+
+        <!-- ===== HEADER ===== -->
+        <div class="terms-header">
+            <span class="icon">📜</span>
+            <h1>Terms & Conditions</h1>
+            <p>Please read these terms carefully before using our services</p>
+            <span class="last-updated">
+                <i class="fas fa-clock"></i> Last Updated: July 2026
+            </span>
+        </div>
+
+        <!-- ===== TERMS CONTENT ===== -->
+        <div class="terms-content">
+
+            <!-- Section 1 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">1</span>
+                    <i class="fas fa-check-circle"></i> Acceptance of Terms
+                </h2>
+                <p>By using our website and services, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our services.</p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">2</span>
+                    <i class="fas fa-utensils"></i> Food Orders & Delivery
+                </h2>
+                <ul>
+                    <li>All orders are subject to availability and confirmation.</li>
+                    <li>Delivery times are estimated and may vary based on location and order volume.</li>
+                    <li>We reserve the right to cancel any order due to unforeseen circumstances.</li>
+                    <li>Special dietary requirements should be mentioned at the time of order.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">3</span>
+                    <i class="fas fa-credit-card"></i> Payments & Pricing
+                </h2>
+                <ul>
+                    <li>All prices are displayed in the local currency and are subject to change without notice.</li>
+                    <li>Payments can be made via Cash on Delivery (COD) or online payment methods.</li>
+                    <li>We reserve the right to modify prices at any time.</li>
+                    <li>All payments are processed securely through trusted payment gateways.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">4</span>
+                    <i class="fas fa-user-check"></i> User Accounts
+                </h2>
+                <ul>
+                    <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+                    <li>You agree to provide accurate and complete information during registration.</li>
+                    <li>We reserve the right to suspend or terminate accounts that violate our policies.</li>
+                    <li>You are solely responsible for all activities that occur under your account.</li>
+                </ul>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">5</span>
+                    <i class="fas fa-shield-alt"></i> Privacy & Data Protection
+                </h2>
+                <ul>
+                    <li>We collect and process personal data in accordance with our Privacy Policy.</li>
+                    <li>Your personal information will never be shared with third parties without your consent.</li>
+                    <li>We take appropriate security measures to protect your data.</li>
+                    <li>You have the right to request access, correction, or deletion of your data.</li>
+                </ul>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">6</span>
+                    <i class="fas fa-copyright"></i> Intellectual Property
+                </h2>
+                <ul>
+                    <li>All content on this website, including logos, images, and text, is our property.</li>
+                    <li>You may not reproduce, distribute, or modify any content without permission.</li>
+                    <li>Unauthorized use of our intellectual property may result in legal action.</li>
+                    <li>All trademarks and trade names are the property of their respective owners.</li>
+                </ul>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">7</span>
+                    <i class="fas fa-exclamation-triangle"></i> Limitation of Liability
+                </h2>
+                <ul>
+                    <li>We are not liable for any indirect, incidental, or consequential damages.</li>
+                    <li>We are not responsible for delays or failures due to circumstances beyond our control.</li>
+                    <li>Our total liability is limited to the amount paid for the specific order.</li>
+                    <li>We do not guarantee that our services will be uninterrupted or error-free.</li>
+                </ul>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">8</span>
+                    <i class="fas fa-sync-alt"></i> Changes to Terms
+                </h2>
+                <ul>
+                    <li>We reserve the right to update these Terms & Conditions at any time.</li>
+                    <li>Changes will be posted on this page with the updated date.</li>
+                    <li>Continued use of our services after changes constitutes acceptance.</li>
+                    <li>We encourage you to review these terms periodically.</li>
+                </ul>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="terms-section">
+                <h2>
+                    <span class="section-number">9</span>
+                    <i class="fas fa-envelope"></i> Contact Information
+                </h2>
+                <p>If you have any questions or concerns about these Terms & Conditions, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> terms@abuzarfastfood.com</li>
+                    <li><strong>Phone:</strong> +92 300 1234567</li>
+                    <li><strong>Address:</strong> 123 Food Street, City Area</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- ===== ACCEPT BUTTON ===== -->
+        <div class="accept-section">
+            <button class="accept-btn" id="acceptBtn">
+                <i class="fas fa-check-circle"></i>
+                I Agree to Terms & Conditions
+            </button>
+            <div class="accepted-notification" id="acceptedNotification">
+                <span class="icon">✅</span>
+                <h3>You Have Accepted the Terms!</h3>
+                <p>Thank you for agreeing to our Terms & Conditions. Enjoy your meal! 🍔</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================
+    JAVASCRIPT - Smooth Interactions
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. SCROLL REVEAL ANIMATION
+        // ============================================
+        const revealElements = document.querySelectorAll('.container, .terms-section, .accept-section');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            revealObserver.observe(el);
+        });
+
+        // ============================================
+        // 2. BACK BUTTON RIPPLE
+        // ============================================
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.2);
+                        transform: scale(0);
+                        animation: rippleAnim 0.6s ease-out;
+                        pointer-events: none;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${e.clientX - rect.left - size/2}px;
+                        top: ${e.clientY - rect.top - size/2}px;
+                    `;
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // ============================================
+        // 3. ACCEPT BUTTON - RIPPLE + NOTIFICATION
+        // ============================================
+        const acceptBtn = document.getElementById('acceptBtn');
+        const notification = document.getElementById('acceptedNotification');
+
+        acceptBtn.addEventListener('click', function(e) {
+            // Ripple Effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255,255,255,0.3);
+                        transform: scale(0);
+                        animation: rippleAnim 0.6s ease-out;
+                        pointer-events: none;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${e.clientX - rect.left - size/2}px;
+                        top: ${e.clientY - rect.top - size/2}px;
+                    `;
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+
+            // Show Notification
+            this.style.display = 'none';
+            notification.classList.add('show');
+            notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Log acceptance
+            console.log('✅ User accepted Terms & Conditions');
+            console.log('📜 Terms accepted at:', new Date().toLocaleString());
+        });
+
+        // ============================================
+        // 4. KEYBOARD SHORTCUTS
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            // Press 'A' to Accept Terms
+            if ((e.key === 'a' || e.key === 'A') && !e.ctrlKey && !e.metaKey) {
+                if (acceptBtn.style.display !== 'none') {
+                    acceptBtn.click();
+                }
+            }
+            // Press 'B' to go back
+            if ((e.key === 'b' || e.key === 'B') && !e.ctrlKey && !e.metaKey) {
+                const backBtn = document.querySelector('.back-btn');
+                if (backBtn) {
+                    backBtn.click();
+                }
+            }
+            // Press 'T' to scroll to top
+            if (e.key === 't' || e.key === 'T') {
+                if (!e.ctrlKey && !e.metaKey) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        });
+
+        // ============================================
+        // 5. CONSOLE WELCOME
+        // ============================================
+        console.log('📜 Terms & Conditions page loaded successfully!');
+        console.log('⌨️ Keyboard Shortcuts:');
+        console.log('  ✅ Press "A" to Accept Terms');
+        console.log('  🔙 Press "B" to Go Back');
+        console.log('  ⬆️ Press "T" to Scroll to Top');
+        console.log('📜 Please read terms carefully!');
+    </script>
+
+</body>
+</html>
